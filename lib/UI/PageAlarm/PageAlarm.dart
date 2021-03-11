@@ -1,7 +1,6 @@
 import 'package:audioplayers/audio_cache.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:zoom_alarm/Models/AlarmData.dart';
 import 'package:zoom_alarm/Models/Note.dart';
 import 'package:zoom_alarm/Style.dart';
 import 'package:audioplayers/audioplayers.dart';
@@ -207,15 +206,12 @@ class _PageAlarmState extends State<PageAlarm> with TickerProviderStateMixin {
     goToHomePage();
     if (await canLaunch(widget.data.link)) {
       await launch(widget.data.link);
-
     } else {
       throw 'Could not launch ${widget.data.link}';
     }
   }
 
   void goToHomePage() async {
-    // await Future.delayed(Duration(milliseconds: 2500));
-    // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>PageAlarm(null)));
     Navigator.pushReplacementNamed(context, Routes.home);
   }
 }

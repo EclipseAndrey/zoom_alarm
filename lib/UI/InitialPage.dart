@@ -14,13 +14,11 @@ class _InitialPageState extends State<InitialPage> {
 
 
   void goToHomePage() async{
-    // await Future.delayed(Duration(milliseconds: 2500));
-    // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>PageAlarm(null)));
     Navigator.pushReplacementNamed(context, Routes.home);
   }
 
 
-  checkPermissions()async{
+  initNotificationsStart()async{
     if(!await initNotifications(context))
     goToHomePage();
   }
@@ -28,7 +26,7 @@ class _InitialPageState extends State<InitialPage> {
 
   @override
   void initState() {
-    checkPermissions();
+    initNotificationsStart();
     super.initState();
   }
 

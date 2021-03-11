@@ -11,41 +11,44 @@ String setDBTime(DateTime date) {
   mi = date.minute % 60 < 10
       ? "0" + (date.minute % 60).toString()
       : (date.minute % 60).toString();
-  return  ye + "." + mo + "." + da + " " + ho + ":" + mi;
+  return ye + "." + mo + "." + da + " " + ho + ":" + mi;
 }
 
-DateTime fromDBTime (String time){
+DateTime fromDBTime(String time) {
   return DateFormat("yyyy.MM.dd HH:mm").parse(time);
 }
 
-
-String getDateRussian(DateTime date, BuildContext context){
-
-  String hm (DateTime time){
-    String  ho, mi;
+String getDateRussian(DateTime date, BuildContext context) {
+  String hm(DateTime time) {
+    String ho, mi;
     ho = date.hour < 10 ? "0" + date.hour.toString() : date.hour.toString();
     mi = date.minute % 60 < 10
         ? "0" + (date.minute % 60).toString()
         : (date.minute % 60).toString();
-    return   ho + ":" + mi;
+    return ho + ":" + mi;
   }
 
-
-  if(date.difference(DateTime.now()).inDays.abs() < 2){
-    if(date.weekday == DateTime.now().weekday){
+  if (date.difference(DateTime.now()).inDays.abs() < 2) {
+    if (date.weekday == DateTime.now().weekday) {
       return S.of(context).today + " " + hm(date);
-    }else{
-      if(date.weekday+1 == DateTime.now().weekday){
-        return S.of(context).yesterday + " "+ hm(date);
-      }else{
+    } else {
+      if (date.weekday + 1 == DateTime.now().weekday) {
+        return S.of(context).yesterday + " " + hm(date);
+      } else {
         return S.of(context).tomorrow + " " + hm(date);
       }
     }
-  }else{
-    return dayWeek(date.weekday) +" "+date.day.toString()+ " "+ month(date.month) + ((date.year != DateTime.now().year)?(" "+ date.year.toString()):"");
+  } else {
+    return dayWeek(date.weekday) +
+        " " +
+        date.day.toString() +
+        " " +
+        month(date.month) +
+        ((date.year != DateTime.now().year)
+            ? (" " + date.year.toString())
+            : "");
   }
 }
-
 
 String month(int month) {
   switch (month) {
@@ -88,30 +91,27 @@ String month(int month) {
   }
 }
 
-
-String dayWeek (int dayWeek){
-  switch(dayWeek -1){
-    case 6:{
+String dayWeek(int dayWeek) {
+  switch (dayWeek - 1) {
+    case 6:
       return "Воскресенье";
-    }
-    case 0:{
-      return "Понедельник";
-    }
-    case 1:{
-      return "Вторник";
-    }
-    case 2:{
-      return "Среда";
-    }
-    case 3:{
-      return "Четверг";
-    }
-    case 4:{
-      return "Пятница";
-    }
-    case 5:{
-      return "Суббота";
-    }
 
+    case 0:
+      return "Понедельник";
+
+    case 1:
+      return "Вторник";
+
+    case 2:
+      return "Среда";
+
+    case 3:
+      return "Четверг";
+
+    case 4:
+      return "Пятница";
+
+    case 5:
+      return "Суббота";
   }
 }

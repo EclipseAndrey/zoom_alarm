@@ -34,14 +34,17 @@ class _HomePageState extends State<HomePage> {
         child: Container(
           decoration: BoxDecoration(
               color: cBlue,
-              borderRadius: BorderRadius.all(Radius.circular(30))
-          ),
+              borderRadius: BorderRadius.all(Radius.circular(30))),
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 18),
-            child: Text(S.of(context).save, style: TextStyle(
-                color: cWhite, fontWeight: FontWeight.w500, fontSize: 18, fontFamily: fontFamily
-
-            ),),
+            child: Text(
+              S.of(context).save,
+              style: TextStyle(
+                  color: cWhite,
+                  fontWeight: FontWeight.w500,
+                  fontSize: 18,
+                  fontFamily: fontFamily),
+            ),
           ),
         ),
       ),
@@ -101,23 +104,45 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
+  _headerActual() {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Text(
+        S.of(context).header_actual,
+        style: TextStyle(
+            color: cMainText.withOpacity(0.7),
+            fontFamily: fontFamily,
+            fontSize: 24,
+            fontWeight: FontWeight.w700),
+      ),
+    );
+  }
 
-  _headerActual(){
+  _headerPast() {
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: Text(S.of(context).header_actual,  style: TextStyle(color: cMainText.withOpacity(0.7), fontFamily: fontFamily, fontSize: 24, fontWeight: FontWeight.w700),),
+      child: Text(
+        S.of(context).header_past,
+        style: TextStyle(
+            color: cMainText.withOpacity(0.7),
+            fontFamily: fontFamily,
+            fontSize: 24,
+            fontWeight: FontWeight.w700),
+      ),
     );
   }
-  _headerPast(){
+
+  _headerFuture() {
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: Text(S.of(context).header_past,  style: TextStyle(color: cMainText.withOpacity(0.7), fontFamily: fontFamily, fontSize: 24, fontWeight: FontWeight.w700),),
-    );
-  }
-  _headerFuture(){
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Text(S.of(context).header_future,  style: TextStyle(color: cMainText.withOpacity(0.7), fontFamily: fontFamily, fontSize: 24, fontWeight: FontWeight.w700),),
+      child: Text(
+        S.of(context).header_future,
+        style: TextStyle(
+            color: cMainText.withOpacity(0.7),
+            fontFamily: fontFamily,
+            fontSize: 24,
+            fontWeight: FontWeight.w700),
+      ),
     );
   }
 
@@ -129,20 +154,30 @@ class _HomePageState extends State<HomePage> {
         decoration: BoxDecoration(
             boxShadow: shadowContainer,
             color: cBlue,
-          borderRadius: BorderRadius.all(Radius.circular(12))
-        ),
+            borderRadius: BorderRadius.all(Radius.circular(12))),
         child: ConstrainedBox(
-          constraints: BoxConstraints(
-            minHeight: 100
-          ),
+          constraints: BoxConstraints(minHeight: 100),
           child: Padding(
             padding: const EdgeInsets.all(12.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(getDateRussian(note.date, context), style: TextStyle(color: cWhite, fontFamily: fontFamily, fontSize: 20, fontWeight: FontWeight.w700),),
-                Text(note.name, style: TextStyle(color: cWhite, fontFamily: fontFamily, fontSize: 18, fontWeight: FontWeight.w500),)
-
+                Text(
+                  getDateRussian(note.date, context),
+                  style: TextStyle(
+                      color: cWhite,
+                      fontFamily: fontFamily,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w700),
+                ),
+                Text(
+                  note.name,
+                  style: TextStyle(
+                      color: cWhite,
+                      fontFamily: fontFamily,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500),
+                )
               ],
             ),
           ),
@@ -162,20 +197,30 @@ class _HomePageState extends State<HomePage> {
               boxShadow: shadowContainer,
               color: cWhite,
               borderRadius: BorderRadius.all(Radius.circular(12)),
-            border: Border.all(color: cBlue)
-          ),
+              border: Border.all(color: cBlue)),
           child: ConstrainedBox(
-            constraints: BoxConstraints(
-                minHeight: 100
-            ),
+            constraints: BoxConstraints(minHeight: 100),
             child: Padding(
               padding: const EdgeInsets.all(12.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(getDateRussian(note.date, context), style: TextStyle(color: cMainText, fontFamily: fontFamily, fontSize: 18, fontWeight: FontWeight.w500),),
-                  Text(note.name, style: TextStyle(color: cMainText, fontFamily: fontFamily, fontSize: 16, fontWeight: FontWeight.w400),)
-
+                  Text(
+                    getDateRussian(note.date, context),
+                    style: TextStyle(
+                        color: cMainText,
+                        fontFamily: fontFamily,
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500),
+                  ),
+                  Text(
+                    note.name,
+                    style: TextStyle(
+                        color: cMainText,
+                        fontFamily: fontFamily,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400),
+                  )
                 ],
               ),
             ),
@@ -193,23 +238,33 @@ class _HomePageState extends State<HomePage> {
         child: Container(
           width: MediaQuery.of(context).size.width,
           decoration: BoxDecoration(
-            boxShadow: shadowContainer,
+              boxShadow: shadowContainer,
               color: cWhite,
               borderRadius: BorderRadius.all(Radius.circular(12)),
-              border: Border.all(color: cDefault)
-          ),
+              border: Border.all(color: cDefault)),
           child: ConstrainedBox(
-            constraints: BoxConstraints(
-                minHeight: 100
-            ),
+            constraints: BoxConstraints(minHeight: 100),
             child: Padding(
               padding: const EdgeInsets.all(12.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(getDateRussian(note.date, context), style: TextStyle(color: cMainText, fontFamily: fontFamily, fontSize: 18, fontWeight: FontWeight.w500),),
-                  Text(note.name, style: TextStyle(color: cMainText, fontFamily: fontFamily, fontSize: 16, fontWeight: FontWeight.w400),)
-
+                  Text(
+                    getDateRussian(note.date, context),
+                    style: TextStyle(
+                        color: cMainText,
+                        fontFamily: fontFamily,
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500),
+                  ),
+                  Text(
+                    note.name,
+                    style: TextStyle(
+                        color: cMainText,
+                        fontFamily: fontFamily,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400),
+                  )
                 ],
               ),
             ),
@@ -219,18 +274,16 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-
-  Widget _gestureNote({Widget child, Note note}){
+  Widget _gestureNote({Widget child, Note note}) {
     return GestureDetector(
-      onLongPress: ()async {
+      onLongPress: () async {
         await showBottomSheetAdd(context, edit: true, note: note);
         notesWidgetModel.getNotes();
       },
-      onTap: (){
+      onTap: () {
         notesWidgetModel.launch(note.link);
       },
       child: child,
     );
   }
 }
-
